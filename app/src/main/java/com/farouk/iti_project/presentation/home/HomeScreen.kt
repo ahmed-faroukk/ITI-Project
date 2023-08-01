@@ -1,3 +1,5 @@
+@file:Suppress("UNUSED_EXPRESSION")
+
 package com.farouk.iti_project.presentation.home
 
 import android.provider.CalendarContract.Colors
@@ -26,21 +28,21 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun HomeScreen() {
     var text by remember { mutableStateOf("Click a button") }
+    var text1 by remember { mutableStateOf("test") }
     var isNameVisible by remember { mutableStateOf(false) }
     Column(
         Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        Text(text = text1)
+        Spacer(modifier = Modifier.height(16.dp))
         OutLineTextFieldSample(onNameChange = { newName ->
             text = newName
         })
         Spacer(modifier = Modifier.height(16.dp))
         Btn {
-            isNameVisible = true
-        }
-        if (isNameVisible) {
-            Text(text = text)
+            text1 = text
         }
 
 
@@ -63,9 +65,7 @@ fun OutLineTextFieldSample(onNameChange: (String) -> Unit) {
 
 @Composable
 fun Btn(onClick: () -> Unit) {
-    Button(onClick = {
-
-    }) {
+    Button(onClick = onClick) {
         Text(text = "show my name ")
     }
 }

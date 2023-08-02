@@ -24,6 +24,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import com.farouk.iti_project.presentation.components.Btn
+import com.farouk.iti_project.presentation.components.OutLineTextFieldMail
 
 @Composable
 fun HomeScreen() {
@@ -37,36 +39,12 @@ fun HomeScreen() {
     ) {
         Text(text = text1)
         Spacer(modifier = Modifier.height(16.dp))
-        OutLineTextFieldSample(onNameChange = { newName ->
+        OutLineTextFieldMail(onNameChange = { newName ->
             text = newName
-        })
+        }, txt = "Enter Your Name")
         Spacer(modifier = Modifier.height(16.dp))
-        Btn {
-            text1 = text
-        }
+        Btn(onClick = { text1 = text }, txt = "show my name")
 
-
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun OutLineTextFieldSample(onNameChange: (String) -> Unit) {
-    var text by remember { mutableStateOf(TextFieldValue("")) }
-    OutlinedTextField(
-        value = text,
-        label = { Text(text = "Enter Your Name") },
-        onValueChange = {
-            text = it
-            onNameChange(it.text)
-        }
-    )
-}
-
-@Composable
-fun Btn(onClick: () -> Unit) {
-    Button(onClick = onClick) {
-        Text(text = "show my name ")
     }
 }
 

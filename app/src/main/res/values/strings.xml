@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ITI-Project</string>
+    <string name="login_form">Login Form</string>
+    <string name="username">"username "</string>
+    <string name="enter_your_mail">enter your mail</string>
+    <string name="password">"password "</string>
+    <string name="enter_your_password">enter your password</string>
+    <string name="login_now">login now</string>
 </resources>

@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.farouk.iti_project.presentation.auth.AuthScreen
 import com.farouk.iti_project.presentation.home.HomeScreen
 import com.farouk.iti_project.ui.theme.ITIProjectTheme
 
@@ -24,7 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ITIProjectTheme {
                 Column(Modifier.fillMaxSize()) {
-                    HomeScreen()
+                    AuthScreen()
                 }
             }
         }

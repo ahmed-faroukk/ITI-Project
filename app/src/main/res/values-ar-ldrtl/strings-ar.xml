@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">مشروع ITI</string>
+    <string name="login_form">تسجيل الدخول</string>
+    <string name="username">اسم المستخدم</string>
+    <string name="enter_your_mail">أدخل بريدك الإلكتروني</string>
+    <string name="password">كلمة المرور</string>
+    <string name="enter_your_password">أدخل كلمة المرور الخاصة بك</string>
+    <string name="login_now">تسجيل الدخول الآن</string>
+</resources>

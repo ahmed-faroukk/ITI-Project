@@ -1,84 +1,55 @@
 package com.farouk.iti_project.presentation.posts
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.farouk.iti_project.R
-import com.farouk.iti_project.presentation.posts.components.Post
 import com.farouk.iti_project.presentation.posts.components.PostListItem
 
 
 @Composable
 fun PostListScreen(
-    navController: NavController
+    navController: NavController,
+    viewModel: PostViewModel = hiltViewModel(),
 ){
-    val profilePic = R.drawable.man
-    val postImage1 = R.drawable.leb
-    val postImage2 = R.drawable.messi
-    val post = mutableListOf<Post>()
-    post.add(
-        Post(
-            profilePic,
-            "Ahmed Farouk ",
-            "@ahmedfaaroukk",
-            postImage1,
-            "MVP this year for lebron !!!!"
-        )
-    )
-    post.add(
-        Post(
-            profilePic,
-            "Ahmed Farouk ",
-            "@ahmedfaaroukk",
-            postImage2,
-            "Balloon Door  this year for leo !!!!"
-        )
-    )
-    post.add(
-        Post(
-            profilePic,
-            "Ahmed Farouk ",
-            "@ahmedfaaroukk",
-            postImage1,
-            "MVP this year for lebron !!!!"
-        )
-    )
-    post.add(
-        Post(
-            profilePic,
-            "Ahmed Farouk ",
-            "@ahmedfaaroukk",
-            postImage2,
-            "Balloon Door  this year for leo !!!!"
-        )
-    )
-    post.add(
-        Post(
-            profilePic,
-            "Ahmed Farouk ",
-            "@ahmedfaaroukk",
-            postImage1,
-            "MVP this year for lebron !!!!"
-        )
-    )
-    post.add(
-        Post(
-            profilePic,
-            "Ahmed Farouk ",
-            "@ahmedfaaroukk",
-            postImage2,
-            "Balloon Door  this year for leo !!!!"
-        )
-    )
 
+    var newPost by remember {
+        mutableStateOf("")
+    }
+    val state = viewModel.state.value
+    if (state.isLoading){
+        Column(modifier = Modifier.fillMaxSize() , verticalArrangement = Arrangement.Center , horizontalAlignment = Alignment.CenterHorizontally){
+            CircularProgressIndicator()
 
-
-    LazyColumn{
-        items(post){
-            PostListItem(post = it)
         }
     }
+    if (state.error.isNotEmpty()){
+        Text(text = state.error)
+    }
 
-
+    LazyColumn{
+        items(state.data.data){post->
+            PostListItem(user = post , onItemClick = {
+                    // navigation
+            })
+        }
+    }
 }
+
+
+
+
+

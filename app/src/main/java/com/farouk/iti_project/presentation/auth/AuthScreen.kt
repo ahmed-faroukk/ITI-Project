@@ -30,13 +30,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.farouk.iti_project.R
-import com.farouk.iti_project.ScreenRoutes
-import com.farouk.iti_project.presentation.components.CheckBox
-import com.farouk.iti_project.presentation.components.CustomToast
-import com.farouk.iti_project.presentation.components.Gender
-import com.farouk.iti_project.presentation.components.GenderSelection
-import com.farouk.iti_project.presentation.components.OutLineTextFieldMail
-import com.farouk.iti_project.presentation.components.OutLineTextFieldPass
+import com.farouk.iti_project.presentation.components.ScreenRoutes
+import com.farouk.iti_project.presentation.auth.components.CheckBox
+import com.farouk.iti_project.presentation.auth.components.CustomToast
+import com.farouk.iti_project.presentation.auth.components.Gender
+import com.farouk.iti_project.presentation.auth.components.GenderSelection
+import com.farouk.iti_project.presentation.auth.components.OutLineTextFieldMail
+import com.farouk.iti_project.presentation.auth.components.OutLineTextFieldPass
 
 @Composable
 fun AuthScreen(

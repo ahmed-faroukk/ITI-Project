@@ -1,4 +1,4 @@
-package com.farouk.iti_project.presentation.posts.components
+package com.farouk.iti_project.presentation.PostDetails
 
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
@@ -35,34 +35,31 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.rememberAsyncImagePainter
 import com.farouk.iti_project.R
 import com.farouk.iti_project.data.remote.dto.Data
+import com.farouk.iti_project.domin.model.Post
 import kotlinx.coroutines.launch
 
 @Composable
 fun PostListItem(
-        user : Data
-    , onItemClick: (Data)->Unit
-) {
+    post : Data
+) {/*
     Column(
         Modifier
             .fillMaxSize()
-            .padding(10.dp).clickable {
-                onItemClick(user)
-            }
+            .padding(10.dp)
     ) {
 
         Row(modifier = Modifier.fillMaxWidth()) {
-            CircularImage(imageResource = user.avatar)
+            CircularImage(imageResource = post.avatar)
             Column {
                 Text(
-                    text = user.first_name + " " + user.last_name,
+                    text = post.first_name,
                     textAlign = TextAlign.Start,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = user.email,
+                    text = post.accountId,
                     textAlign = TextAlign.Start,
                     fontWeight = FontWeight.Normal
                 )
@@ -72,19 +69,19 @@ fun PostListItem(
 
 
         BlackSpacer()
-        PostImage(imageResource = user.avatar)
+        PostImage(imageResource = post.postImage)
         BlackSpacer()
         Text(text = "3k likes" , fontWeight = FontWeight.Light , fontSize = 15.sp)
         HeartAnimation()
 
         Row {
             Text(
-                text = "${user.first_name + " " +user.last_name} : ",
+                text = "${post.Username} : ",
                 textAlign = TextAlign.Start,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = "post Content here ",
+                text = post.PostContent,
                 fontWeight = FontWeight.Medium,
                 modifier = Modifier.padding(start = 5.dp)
             )
@@ -96,14 +93,14 @@ fun PostListItem(
 
     }
 }
-
+*/
 
 @Composable
-fun CircularImage(imageResource: String) {
+fun CircularImage(imageResource: Int) {
 
 
     Image(
-        painter = rememberAsyncImagePainter(imageResource),
+        painterResource(id = imageResource),
         contentDescription = "profile pic",
         modifier = Modifier
             .padding(end = 10.dp)
@@ -114,14 +111,14 @@ fun CircularImage(imageResource: String) {
 }
 
 @Composable
-fun PostImage(imageResource: String) {
+fun PostImage(imageResource: Int) {
     Column(
         Modifier
             .fillMaxSize()
             .padding(10.dp), horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            painter = rememberAsyncImagePainter(imageResource),
+            painterResource(id = imageResource),
             contentDescription = "post image ",
             modifier = Modifier
                 .size(330.dp)
@@ -142,20 +139,20 @@ fun LikeButton(
     }
 
 
-        // Red heart icon
-        Image(
-            painter = painterResource(
-                id = if (isLiked) R.drawable.like_24 else R.drawable.dislike_24
-            ),
-            contentDescription = "love btn",
-            modifier = Modifier
-                .padding(5.dp)
-                .size(25.dp)
-                .clickable {
-                    isLiked = !isLiked
+    // Red heart icon
+    Image(
+        painter = painterResource(
+            id = if (isLiked) R.drawable.like_24 else R.drawable.dislike_24
+        ),
+        contentDescription = "love btn",
+        modifier = Modifier
+            .padding(5.dp)
+            .size(25.dp)
+            .clickable {
+                isLiked = !isLiked
 
-                }
-        )
+            }
+    )
 
 
 }
@@ -210,4 +207,5 @@ fun HeartAnimation() {
                 }
             }
     )
+}
 }

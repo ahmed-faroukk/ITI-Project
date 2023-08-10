@@ -1,4 +1,4 @@
-package com.farouk.iti_project.presentation.components
+package com.farouk.iti_project.presentation.auth.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

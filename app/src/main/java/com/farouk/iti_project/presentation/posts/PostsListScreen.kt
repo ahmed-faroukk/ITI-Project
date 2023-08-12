@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.farouk.iti_project.R
+import com.farouk.iti_project.presentation.components.ScreenRoutes
 import com.farouk.iti_project.presentation.posts.components.PostListItem
 
 
@@ -40,10 +41,11 @@ fun PostListScreen(
         Text(text = state.error)
     }
 
+
     LazyColumn{
         items(state.data.data){post->
             PostListItem(user = post , onItemClick = {
-                    // navigation
+                   navController.navigate(ScreenRoutes.PostDetailScreen.route +"/post_id")
             })
         }
     }

@@ -1,4 +1,4 @@
-package com.farouk.iti_project.presentation.components
+package com.farouk.iti_project.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost

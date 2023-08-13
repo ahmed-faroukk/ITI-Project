@@ -1,4 +1,4 @@
-package com.farouk.iti_project.presentation.components
+package com.farouk.iti_project.presentation.navigation
 
 sealed class ScreenRoutes(val route : String){
     object PostsListScreen : ScreenRoutes("posts_list_screen")

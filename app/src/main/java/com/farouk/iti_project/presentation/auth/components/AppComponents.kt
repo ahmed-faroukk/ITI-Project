@@ -112,7 +112,7 @@ fun CheckBox(onCheckChanges: (Boolean) -> Unit, sportType: String) {
 
             )
             Spacer(modifier = Modifier.width(3.dp))
-            Text(text = sportType, modifier = Modifier.width(110.dp), color = Color.White)
+            Text(text = sportType, modifier = Modifier.width(110.dp), color = Color.Black)
         }
 
     }
@@ -143,7 +143,7 @@ fun GenderSelection(onGenderClicked: (Gender) -> Unit, modifier: Modifier = Modi
 
             )
             Spacer(modifier = Modifier.width(8.dp))
-            Text(text = "Male", color = Color.White)
+            Text(text = "Male", color = Color.Black)
         }
 
         // Female radio button
@@ -158,7 +158,7 @@ fun GenderSelection(onGenderClicked: (Gender) -> Unit, modifier: Modifier = Modi
                 onClick = { selectedGender = Gender.FEMALE }
             )
             Spacer(modifier = Modifier.width(8.dp))
-            Text(text = "Female", color = Color.White)
+            Text(text = "Female", color = Color.Black)
         }
     }
 }

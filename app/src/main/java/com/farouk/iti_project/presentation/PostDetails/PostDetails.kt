@@ -35,15 +35,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.rememberAsyncImagePainter
 import com.farouk.iti_project.R
-import com.farouk.iti_project.data.remote.dto.Data
-import com.farouk.iti_project.domin.model.Post
+import com.farouk.iti_project.data.remote.dto.UserData
 import kotlinx.coroutines.launch
 
 @Composable
 fun PostListItem(
-    post : Data
-) {/*
+    post : UserData
+) {
     Column(
         Modifier
             .fillMaxSize()
@@ -54,12 +54,12 @@ fun PostListItem(
             CircularImage(imageResource = post.avatar)
             Column {
                 Text(
-                    text = post.first_name,
+                    text = post.first_name + " " + post.last_name,
                     textAlign = TextAlign.Start,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = post.accountId,
+                    text = post.email,
                     textAlign = TextAlign.Start,
                     fontWeight = FontWeight.Normal
                 )
@@ -69,19 +69,19 @@ fun PostListItem(
 
 
         BlackSpacer()
-        PostImage(imageResource = post.postImage)
+        PostImage(imageResource = post.avatar)
         BlackSpacer()
         Text(text = "3k likes" , fontWeight = FontWeight.Light , fontSize = 15.sp)
         HeartAnimation()
 
         Row {
             Text(
-                text = "${post.Username} : ",
+                text = "${post.first_name} : ",
                 textAlign = TextAlign.Start,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = post.PostContent,
+                text = "post content",
                 fontWeight = FontWeight.Medium,
                 modifier = Modifier.padding(start = 5.dp)
             )
@@ -93,14 +93,14 @@ fun PostListItem(
 
     }
 }
-*/
+
 
 @Composable
-fun CircularImage(imageResource: Int) {
+fun CircularImage(imageResource: String) {
 
 
     Image(
-        painterResource(id = imageResource),
+        painter = rememberAsyncImagePainter(imageResource),
         contentDescription = "profile pic",
         modifier = Modifier
             .padding(end = 10.dp)
@@ -111,14 +111,14 @@ fun CircularImage(imageResource: Int) {
 }
 
 @Composable
-fun PostImage(imageResource: Int) {
+fun PostImage(imageResource: String) {
     Column(
         Modifier
             .fillMaxSize()
             .padding(10.dp), horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            painterResource(id = imageResource),
+            painter = rememberAsyncImagePainter(imageResource),
             contentDescription = "post image ",
             modifier = Modifier
                 .size(330.dp)
@@ -208,4 +208,4 @@ fun HeartAnimation() {
             }
     )
 }
-}
+

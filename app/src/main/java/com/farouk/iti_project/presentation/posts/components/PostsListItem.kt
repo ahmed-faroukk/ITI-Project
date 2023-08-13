@@ -37,13 +37,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.farouk.iti_project.R
-import com.farouk.iti_project.data.remote.dto.Data
+import com.farouk.iti_project.data.remote.dto.UserData
 import kotlinx.coroutines.launch
 
 @Composable
 fun PostListItem(
-        user : Data
-    , onItemClick: (Data)->Unit
+        user : UserData
+    , onItemClick: (UserData)->Unit
 ) {
     Column(
         Modifier

@@ -1,6 +1,6 @@
 package com.farouk.iti_project.data.remote.dto
 
-data class Data(
+data class UserData(
     val avatar: String,
     val email: String,
     val first_name: String,

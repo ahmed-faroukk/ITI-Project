@@ -1,4 +1,5 @@
-package com.farouk.iti_project.presentation.posts
+package com.farouk.iti_project.presentation.PostComments
+
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -8,27 +9,18 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
-import com.farouk.iti_project.presentation.navigation.ScreenRoutes
-import com.farouk.iti_project.presentation.posts.components.PostListItem
-
+import com.farouk.iti_project.presentation.PostComments.compnents.PostCommentsItem
 
 @Composable
-fun PostListScreen(
-    navController: NavController,
-    viewModel: PostViewModel = hiltViewModel(),
+fun CommentsDetailScreen(
+    viewModel: CommentsViewModel = hiltViewModel(),
 ){
 
-    var newPost by remember {
-        mutableStateOf("")
-    }
+
 
     val state = viewModel.state.value
     if (state.isLoading){
@@ -43,10 +35,11 @@ fun PostListScreen(
 
 
     LazyColumn{
-        items(state.data.posts){post->
-            PostListItem(post = post , onItemClick = {
-                   navController.navigate(ScreenRoutes.CommentsDetailScreen.route + "/${post.id}")
-            })
+        item {
+        Text(text = "Comments" , fontWeight =  FontWeight.ExtraBold)
+    }
+        items(state.data.comments){comment->
+                PostCommentsItem(comment = comment)
         }
     }
 }

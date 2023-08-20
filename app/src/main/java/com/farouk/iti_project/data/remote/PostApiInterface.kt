@@ -1,28 +1,29 @@
 package com.farouk.iti_project.data.remote
 
+import com.farouk.iti_project.data.remote.dto.comment.Comments
 import com.farouk.iti_project.data.remote.dto.login.LoginRequest
 import com.farouk.iti_project.data.remote.dto.login.LoginResponse
-import com.farouk.iti_project.domin.model.Post
+import com.farouk.iti_project.data.remote.dto.login.PostsDto
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Headers
 import retrofit2.http.POST
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface PostApiInterface {
 
+
+    @Headers("Content-Type: application/json")
     @POST("auth/login")
-    suspend fun login(@Body loginRequest: LoginRequest): LoginResponse
-
-    @GET("users")
-    suspend fun getUsers() : Post
+    suspend fun login(@Body request: LoginRequest): LoginResponse
 
     @GET("posts")
-    suspend fun getPosts() : Post
+    suspend fun fetchPosts(): PostsDto
 
-    @GET("posts")
-    suspend fun getPostsById(@Query("userId") postId : Int) : Post
+    @GET("posts/{postId}/comments")
+    fun getPostComments(@Path("postId") postId: Int): Comments
 
-    @GET("posts/{post_id}/comments")
-    suspend fun getComments(@Query("userId") postId : Int) : Post
+
 
 }

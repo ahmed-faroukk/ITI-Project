@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.farouk.iti_project.presentation.PostComments.CommentsDetailScreen
 import com.farouk.iti_project.presentation.auth.AuthScreen
 import com.farouk.iti_project.presentation.posts.PostListScreen
 
@@ -14,10 +15,6 @@ fun AppNavigation() {
     NavHost(navController = navController, startDestination = ScreenRoutes.AuthScreen.route) {
         composable(ScreenRoutes.AuthScreen.route) { AuthScreen(navController) }
         composable(ScreenRoutes.PostsListScreen.route) { PostListScreen(navController) }
-        composable(ScreenRoutes.PostDetailScreen.route) {
-
-            ScreenRoutes.PostDetailScreen
-
-        }
+        composable(ScreenRoutes.CommentsDetailScreen.route + "/{postId}") { CommentsDetailScreen() }
     }
 }

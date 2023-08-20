@@ -2,10 +2,12 @@ package com.farouk.iti_project.presentation.auth
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.farouk.iti_project.data.remote.dto.login.LoginRequest
 import com.farouk.iti_project.domin.usecase.loginRequest.LoginUseCase
 import com.plcoding.cryptocurrencyappyt.common.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
@@ -26,7 +28,7 @@ class AuthViewModel @Inject constructor(
             when (response) {
 
                 is Resource.Success -> {
-                    _state.value = LoginState(data = response.data)
+                    _state.value = LoginState(data = response.data, loginSuccessfully = true)
                 }
 
                 is Resource.Error -> {
@@ -37,8 +39,9 @@ class AuthViewModel @Inject constructor(
                 is Resource.Loading -> {
                     _state.value = LoginState(isLoading = true)
                 }
+                
             }
 
-        }
+        }.launchIn(viewModelScope)
     }
 }

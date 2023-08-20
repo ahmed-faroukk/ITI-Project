@@ -3,7 +3,7 @@ package com.farouk.iti_project.presentation.posts
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.farouk.iti_project.domin.model.Post
+import com.farouk.iti_project.data.remote.dto.login.PostsDto
 import com.farouk.iti_project.domin.usecase.getPosts.GetPostsUseCase
 import com.plcoding.cryptocurrencyappyt.common.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -27,11 +27,10 @@ class PostViewModel @Inject constructor(
 
             when(response){
                 is Resource.Success -> {
-                    state.value = PostListState(data = Post(response.data!!.data))
+                    state.value = PostListState(data = response.data!!)
                 }
                 is Resource.Error -> {
                     state.value = PostListState(error = response.message.toString())
-
                 }
                 is Resource.Loading -> {
                     state.value = PostListState(isLoading = true)

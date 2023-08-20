@@ -14,6 +14,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -52,6 +53,8 @@ fun AuthScreen(
     var cliked by remember { mutableStateOf(false) }
     val gray = Color(0xFF3C3C3C)
     val blue = Color(0xFF2196F3)
+    val state = viewModel._state.value
+
 
 
     var footballChecked by remember { mutableStateOf(false) }
@@ -65,11 +68,13 @@ fun AuthScreen(
     var selectedGender by remember { mutableStateOf(Gender.MALE) }
 
 
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White)
-            .verticalScroll(rememberScrollState()).padding(10.dp),
+            .verticalScroll(rememberScrollState())
+            .padding(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -127,7 +132,7 @@ fun AuthScreen(
                     cliked = true
                 val loginRequest = LoginRequest(mail , pass)
                 viewModel.loginRequest(loginRequest)
-                navController.navigate(ScreenRoutes.PostsListScreen.route)
+
             }, colors = ButtonDefaults.buttonColors(blue),
             modifier = Modifier
                 .padding(start = 60.dp, end = 60.dp)
@@ -142,7 +147,15 @@ fun AuthScreen(
 
             CustomToast(message = "mail is $mail \b gender is $selectedGender \nhobbies is $arrOFHobbies" )
         }
+        if (state.isLoading){
+            CircularProgressIndicator()
+        }
 
+    }
+
+
+    if (state.loginSuccessfully){
+        navController.navigate(ScreenRoutes.PostsListScreen.route)
     }
 
 }

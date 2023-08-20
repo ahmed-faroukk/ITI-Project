@@ -37,32 +37,33 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.farouk.iti_project.R
-import com.farouk.iti_project.data.remote.dto.UserData
+import com.farouk.iti_project.data.remote.dto.login.PostContent
 import kotlinx.coroutines.launch
 
 @Composable
 fun PostListItem(
-        user : UserData
-    , onItemClick: (UserData)->Unit
+        post : PostContent
+    , onItemClick: (id : Int)->Unit
 ) {
+
     Column(
         Modifier
             .fillMaxSize()
             .padding(10.dp).clickable {
-                onItemClick(user)
+                onItemClick(post.userId)
             }
     ) {
 
         Row(modifier = Modifier.fillMaxWidth()) {
-            CircularImage(imageResource = user.avatar)
+            CircularImage(imageResource = "https://static.vecteezy.com/system/resources/previews/002/275/847/original/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg")
             Column {
                 Text(
-                    text = user.first_name + " " + user.last_name,
+                    text = "user id : "+ post.userId.toString() ,
                     textAlign = TextAlign.Start,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = user.email,
+                    text = "post id : " + post.id.toString(),
                     textAlign = TextAlign.Start,
                     fontWeight = FontWeight.Normal
                 )
@@ -72,23 +73,22 @@ fun PostListItem(
 
 
         BlackSpacer()
-        PostImage(imageResource = user.avatar)
+        PostImage(imageResource = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png")
         BlackSpacer()
-        Text(text = "3k likes" , fontWeight = FontWeight.Light , fontSize = 15.sp)
+        Text(text = post.reactions.toString() , fontWeight = FontWeight.Light , fontSize = 15.sp)
         HeartAnimation()
 
-        Row {
             Text(
-                text = "${user.first_name + " " +user.last_name} : ",
+                text = "Title : ${post.title}",
                 textAlign = TextAlign.Start,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = "post Content here ",
+                text = post.body,
                 fontWeight = FontWeight.Medium,
                 modifier = Modifier.padding(start = 5.dp)
             )
-        }
+
         Text(text = "5 minutes ago" , fontWeight = FontWeight.Light , fontSize = 10.sp)
 
 

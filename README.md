@@ -1,16 +1,8 @@
 # ITI-Project
 .....
 
-# Screnshot-Task2 screen
-<table>
- <tr>
-        <td><img src="https://github.com/ahmed-faroukk/ITI-Project/assets/72602749/890a6b51-f4cc-4dd3-ad7d-98ed88e1d1cb"></td>
-        <td><img src="https://github.com/ahmed-faroukk/ITI-Project/assets/72602749/d45187b9-ec4e-49d2-8a4c-e02d60575083"></td>
-           <td><img src="https://github.com/ahmed-faroukk/ITI-Project/assets/72602749/80a85395-a57f-4103-bcc6-51c81216e6e3"></td>
+# screenshots 
 
-  </tr>
-</table>
-# Screnshot-Task3 screen
 <table>
  <tr>
         <td><img src="https://github.com/ahmed-faroukk/ITI-Project/assets/72602749/edc5a390-1489-4e86-bc71-9d3bbc0304c9"></td>
@@ -19,3 +11,36 @@
 
   </tr>
 </table>
+<table>
+ <tr>
+        <td><img src="https://github.com/ahmed-faroukk/ITI-Project/assets/72602749/ef427dd7-304a-4165-a16c-ba440e1fa8c5"></td>
+        <td><img src="https://github.com/ahmed-faroukk/ITI-Project/assets/72602749/f608d7dd-a823-482b-80db-78d2711ad291"></td>
+        <td><img src="https://github.com/ahmed-faroukk/ITI-Project/assets/72602749/aa9b0a12-a204-431b-ba46-d4eee1d073ac"></td>
+        <td><img src="https://github.com/ahmed-faroukk/ITI-Project/assets/72602749/c4ac2ed3-472d-4e1a-88a4-356136de975d"></td>
+
+  </tr>
+</table>
+# App-Arch
+![Screenshot from 2023-08-14 17-24-55](https://github.com/ahmed-faroukk/Coins-App/assets/72602749/76cab5d9-5bef-43fb-9cde-a19b4cde95e3)
+
+
+# In-App architecture
+![arch](https://github.com/ahmed-faroukk/AlalmiyaAlhura-Task/assets/72602749/a4a02bb5-58ca-4ac6-a9c6-153182644af5)
+
+# Features
+<li> Simple UI </li>
+<li>Simple Animations</li>
+
+# Tools & APIs
+<ul>
+  <li>MVVM Arch</li>
+  <li>Clean architecture</li>
+  <li>Dependency injection with dager Hilt</li>
+  <li>Retrofit</li>
+  <li>OkHttp</li>
+  <li>Sealed Classes</li>
+  <li>Kotlin Coroutines</li>
+  <li>Flow</li>
+  <li>Coil</li>
+  <li>Compose Navigation</li>
+</ul>

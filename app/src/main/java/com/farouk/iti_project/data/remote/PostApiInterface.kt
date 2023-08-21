@@ -22,7 +22,8 @@ interface PostApiInterface {
     suspend fun fetchPosts(): PostsDto
 
     @GET("posts/{postId}/comments")
-    fun getPostComments(@Path("postId") postId: Int): Comments
+    suspend fun getPostComments(@Path("postId") postId: Int) : Comments
+
 
 
 

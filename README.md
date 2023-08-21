@@ -20,6 +20,7 @@
 
   </tr>
 </table>
+
 # App-Arch
 ![Screenshot from 2023-08-14 17-24-55](https://github.com/ahmed-faroukk/Coins-App/assets/72602749/76cab5d9-5bef-43fb-9cde-a19b4cde95e3)
 
